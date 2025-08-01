@@ -1,6 +1,6 @@
 # skeleton
 
-An Opinionated Flutter Template
+An Efficient Flutter Template Crafted for Rapid Development
 
 ## Getting Started
 
