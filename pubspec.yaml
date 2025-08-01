@@ -48,7 +48,20 @@ flutter:
   fonts:
     - family: GeistMono
       fonts:
-        - asset: fonts/GeistMono-Regular.ttf
-        - asset: fonts/GeistMono-Bold.ttf
+        - asset: fonts/Geist/GeistMono-Regular.ttf
+        - asset: fonts/Geist/GeistMono-Bold.ttf
           weight: 700
+
+    - family: MonaSans
+      fonts:
+        - asset: fonts/MonaSans/MonaSans-Regular.ttf
+        - asset: fonts/MonaSans/MonaSans-Bold.ttf
+          weight: 700
+
+    - family: RedditSans
+      fonts:
+        - asset: fonts/RedditSans/RedditSans-Regular.ttf
+        - asset: fonts/RedditSans/RedditSans-Bold.ttf
+          weight: 700
+
   # see https://flutter.dev/to/font-from-package

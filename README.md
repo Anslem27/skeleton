@@ -26,7 +26,7 @@ samples, guidance on mobile development, and a full API reference.
   - TMDB API integration screen for movie data.
   - Quotes API page for inspirational quotes.
 - **Theming:** Minimal and elegant theming based on the Slate Shadcn theme, supporting both dark and light modes.
-- **Fonts:** Utilizes the GeistMono font from Vercel for a clean and modern look.
+- **Fonts:** Shared Prefs sample on how to add font selections
 - **Changelog Script:** Optimized script to generate a changelog based off your git commits
 - **More Coming Soon:** Continuous improvements and new features are planned.
 

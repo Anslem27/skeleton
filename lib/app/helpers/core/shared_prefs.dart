@@ -8,6 +8,7 @@ class Prefs extends ChangeNotifier {
   static final Prefs prefs = Prefs._();
 
   String? theme;
+  String? font;
   bool developerMode = false;
   bool isFirstOpen = true;
 
@@ -40,7 +41,7 @@ class Prefs extends ChangeNotifier {
 
   Future<void> getTheme() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    theme = prefs.getString('theme') ?? 'systme';
+    theme = prefs.getString('theme') ?? 'system';
   }
 
   ThemeMode get themeMode {
@@ -53,6 +54,23 @@ class Prefs extends ChangeNotifier {
       default:
         return ThemeMode.light;
     }
+  }
+
+  // Font methods
+  Future<void> setFont({required String selectedFont}) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('font', selectedFont);
+    font = selectedFont;
+    notifyListeners();
+  }
+
+  Future<void> getFont() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    font = prefs.getString('font') ?? 'GeistMono';
+  }
+
+  String get currentFont {
+    return font ?? 'GeistMono';
   }
 
   // developerMode methods
@@ -78,6 +96,7 @@ class Prefs extends ChangeNotifier {
   Future<void> getPrefs() async {
     await getFirstOpen();
     await getTheme();
+    await getFont();
     await getDeveloperMode();
     notifyListeners();
   }
@@ -104,6 +123,7 @@ class Prefs extends ChangeNotifier {
     });
 
     theme = 'light';
+    font = 'GeistMono';
 
     notifyListeners();
   }

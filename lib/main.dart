@@ -69,12 +69,13 @@ class _MyAppState extends State<MyApp> {
         ],
         child: Consumer<Prefs>(
           builder: (context, prefs, child) {
+            final selectedFont = prefs.currentFont;
             return MaterialApp(
               navigatorKey: MyApp.navigatorKey,
               title: '${Constants.appName} Skeleton',
-              theme: AppTheme.lightTheme,
-              darkTheme: AppTheme.darkTheme,
               themeMode: prefs.themeMode,
+              theme: AppTheme.lightTheme(fontFamily: selectedFont),
+              darkTheme: AppTheme.darkTheme(fontFamily: selectedFont),
               home: NavigationWrapper(),
             );
           },

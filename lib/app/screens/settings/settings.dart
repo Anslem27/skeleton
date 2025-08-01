@@ -4,6 +4,7 @@ import 'package:skeleton/app/screens/logs.dart';
 import 'package:skeleton/app/theme/theme.dart';
 import 'package:skeleton/app/widgets/generic_card.dart';
 import '../../helpers/core/shared_prefs.dart';
+import '../../helpers/data/fonts.dart';
 
 class Settings extends StatelessWidget {
   const Settings({super.key});
@@ -13,6 +14,7 @@ class Settings extends StatelessWidget {
     return Consumer<Prefs>(
       builder: (context, prefs, child) {
         final currentTheme = prefs.theme ?? 'system';
+        final currentFont = prefs.font ?? 'GeistMono';
 
         return SingleChildScrollView(
           padding: const EdgeInsets.all(16),
@@ -54,6 +56,31 @@ class Settings extends StatelessWidget {
                         onChanged: (String? newValue) {
                           if (newValue != null) {
                             prefs.setTheme(selectedTheme: newValue);
+                          }
+                        },
+                      ),
+                    ),
+                    _SettingItem(
+                      title: 'Font Family',
+                      subtitle:
+                          'Choose your preferred font - ${kFonts[currentFont] ?? 'Unknown'}',
+                      trailing: DropdownButton<String>(
+                        borderRadius: BorderRadius.circular(8),
+                        value: kFonts.keys.contains(currentFont)
+                            ? currentFont
+                            : 'GeistMono',
+                        items: kFonts.keys.map((String fontKey) {
+                          return DropdownMenuItem<String>(
+                            value: fontKey,
+                            child: Text(
+                              '$fontKey (${kFonts[fontKey]})',
+                              style: TextStyle(fontFamily: fontKey),
+                            ),
+                          );
+                        }).toList(),
+                        onChanged: (String? newValue) {
+                          if (newValue != null) {
+                            prefs.setFont(selectedFont: newValue);
                           }
                         },
                       ),

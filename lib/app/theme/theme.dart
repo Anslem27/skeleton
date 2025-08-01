@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-
-
 abstract class AppTheme {
   AppTheme._();
 
@@ -115,10 +113,10 @@ abstract class AppTheme {
   }
 
   // Light Theme
-  static ThemeData get lightTheme {
+  static ThemeData lightTheme({String fontFamily = 'GeistMono'}) {
     return ThemeData(
       brightness: Brightness.light,
-      fontFamily: 'GeistMono',
+      fontFamily: fontFamily,
       primaryColor: primary,
       colorScheme: const ColorScheme.light(
         primary: primary,
@@ -176,10 +174,10 @@ abstract class AppTheme {
   }
 
   // Dark Theme
-  static ThemeData get darkTheme {
+  static ThemeData darkTheme({String fontFamily = 'GeistMono'}) {
     return ThemeData(
       brightness: Brightness.dark,
-      fontFamily: 'GeistMono',
+      fontFamily: fontFamily,
       primaryColor: darkPrimary,
       colorScheme: const ColorScheme.dark(
         primary: darkPrimary,
